@@ -2,6 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/cadastroAluno.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
@@ -46,7 +47,7 @@
           <div class="col-md-12">
            
 
-            <form method = "POST" action = "header.php">
+            <form id = "form_cadastro" method = "POST" action = "header.php">
 
               <div class="form-group">
                 <div class="col-sm-2">
@@ -55,7 +56,7 @@
                   </font>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" name = "nome" class="form-control" id="inputPassword3" placeholder="Digite seu Nome">
+                  <input type="text" name = "nome" class="form-control" id="nome" placeholder="Digite seu Nome" onclick="limpaText(this);">
                 </div>
               </div>
 
@@ -67,7 +68,7 @@
                   </font>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" name = "ra" class="form-control" id="#ra" maxlength="8" placeholder="Digite seu RA">
+                  <input type="text" name = "ra" class="form-control" id="ra" maxlength="8" placeholder="Digite seu RA" onclick="limpaText(this);">
                 </div>
               </div>
 
@@ -79,7 +80,7 @@
                   </font>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" name = "email" class="form-control" id="inputPassword3" placeholder="Digite seu email">
+                  <input type="text" name = "email" class="form-control" id="email" placeholder="Digite seu email" onclick="limpaText(this);">
                 </div>
               </div>
 
@@ -91,7 +92,7 @@
                   </font>
                 </div>
                 <div class="col-sm-10">
-                  <input type="password" name = "senha" class="form-control" id="inputPassword3" placeholder="Digite uma senha">
+                  <input type="password" name = "senha" class="form-control" id="senha" placeholder="Digite uma senha" onclick="limpaText(this);">
                 </div>
               </div>
 
@@ -103,7 +104,7 @@
                 </font>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" name = "contato" class="form-control" id="#telefone" maxlength="11" placeholder="Digite seu número">
+                  <input type="text" name = "contato" class="form-control" id="contato" maxlength="11" placeholder="Digite seu número" onclick="limpaText(this);">
 
                 </div>
               </div>
@@ -115,18 +116,13 @@
               </td>
                <td width="210" align = "right ">
 
-                   <input type="submit" class="btn btn-sm btn-warning" name="cadastro" value = "Confirmar"><br>
+                   <input class="btn btn-sm btn-warning" name="cadastro" value = "Confirmar" onclick="validaSubmit();"><br>
               </td>
               </tr>
               </table>
 
               
             </form>
-
-
-
-
-
 
         </div>
       </div>
