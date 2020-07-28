@@ -12,4 +12,3 @@ mysql_select_db($banco);
 if (mysql_error()==""){
 	//echo "conexao Ok";
 }
-?>

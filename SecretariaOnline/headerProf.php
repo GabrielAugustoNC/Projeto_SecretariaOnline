@@ -1,63 +1,62 @@
- <?php 
-                include "classeConexao.php";
+ <?php
+  include "classeConexao.php";
 
-                $nome = $_POST['nome'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-               // $senha = md5($_POST['senha']);
-                
-
-                if ($nome != "" and $senha != "" and $email != ""){
-
-                $sql = mysql_query("INSERT INTO professor(email,nome, senha) values ('$email', '$nome','$senha') ");
-                mysql_error();
+  $nome = $_POST['nome'];
+  $email = $_POST['email'];
+  $senha = $_POST['senha'];
+  // $senha = md5($_POST['senha']);
 
 
+  if ($nome != "" and $senha != "" and $email != "") {
 
-                      if (mysql_error() == null or mysql_error() == "" ){
-                         
-                           echo"<script type='text/javascript'>";
+    $sql = mysql_query("INSERT INTO professor(email,nome, senha) values ('$email', '$nome','$senha') ");
+    mysql_error();
 
-                          echo "alert('Cadastrado Efetuado! Faça seu Login.');";
 
-                          echo "</script>";
 
-                          header('refresh:1;iniProf.php');
+    if (mysql_error() == null or mysql_error() == "") {
 
-                       } else{
+      echo "<script type='text/javascript'>";
 
-                    
-                          echo"<script type='text/javascript'>";
+      echo "alert('Cadastrado Efetuado! Faça seu Login.');";
 
-                          echo "alert('RA já Cadastrado!');";
+      echo "</script>";
 
-                          echo "</script>";
-                  
-                          header('refresh:1;cadastroProf.php');
-                }
+      header('refresh:1;iniProf.php');
+    } else {
 
-                }else{
-                    
-                    echo"<script type='text/javascript'>";
 
-                    echo "alert('Preencha o Formulário de Cadastro!');";
+      echo "<script type='text/javascript'>";
 
-                    echo "</script>";
+      echo "alert('RA já Cadastrado!');";
 
-                    header('refresh:1;cadastroProf.php');
+      echo "</script>";
 
-                  
-                }
+      header('refresh:1;cadastroProf.php');
+    }
+  } else {
 
-                
+    echo "<script type='text/javascript'>";
 
-?>
+    echo "alert('Preencha o Formulário de Cadastro!');";
 
-<html>
-  <head>
-  <link href="front/estiloProf.css" rel="stylesheet">
-  </head>
-  <body>
-    
-  </body>
-</html>
+    echo "</script>";
+
+    header('refresh:1;cadastroProf.php');
+  }
+
+
+
+  ?>
+
+ <html>
+
+ <head>
+   <link href="front/estiloProf.css" rel="stylesheet">
+ </head>
+
+ <body>
+
+ </body>
+
+ </html>

@@ -1,70 +1,66 @@
-<?php 
-	include "classeConexao.php";
+<?php
+include "classeConexao.php";
 
-	$ra = $_POST['ra']; 
-	$senha = $_POST['senha'];
-	//$senha = md5($_POST['senha']);
-	$sql = "SELECT ra, senha FROM aluno WHERE ra = '$ra' AND senha = '$senha'";
-	$query = mysql_query($sql);
-	$resultado = mysql_fetch_assoc($query);
-  	
-	//var_dump($resultado);
+$ra = $_POST['ra'];
+$senha = $_POST['senha'];
+//$senha = md5($_POST['senha']);
+$sql = "SELECT ra, senha FROM aluno WHERE ra = '$ra' AND senha = '$senha'";
+$query = mysql_query($sql);
+$resultado = mysql_fetch_assoc($query);
 
-	$verificaRA = $resultado['ra']; 
-	$verificaSenha = $resultado['senha'];
+//var_dump($resultado);
 
-	/*echo "<br>verificaRA: ", $verificaRA;
+$verificaRA = $resultado['ra'];
+$verificaSenha = $resultado['senha'];
+
+/*echo "<br>verificaRA: ", $verificaRA;
 	echo "<br>verificaSenha: ", $verificaSenha;
 	echo "<br>ra: ", $ra;
 	echo "<br>senha: ", $senha;*/
-  	
- if ($verificaRA == $ra and $verificaSenha == $senha){
 
- 		if($ra != "" and $senha != "") {
+if ($verificaRA == $ra and $verificaSenha == $senha) {
 
-      $sql_ = "UPDATE aluno SET active = '1' where ra = '$ra'";
-      $query_ = mysql_query($sql_);
+	if ($ra != "" and $senha != "") {
 
- 			header('refresh:1;menuPrincipal.php');
- 		}
- 		else{
+		$sql_ = "UPDATE aluno SET active = '1' where ra = '$ra'";
+		$query_ = mysql_query($sql_);
 
- 			echo "<script type='text/javascript'>";
+		header('refresh:1;menuPrincipal.php');
+	} else {
 
-        	echo "alert('Por favor, Digite seu RA e Senha!');";
+		echo "<script type='text/javascript'>";
 
-        	echo "</script>";
+		echo "alert('Por favor, Digite seu RA e Senha!');";
 
-
-        	header('refresh:1;ini.php');
- 		}
-  		
-  	
-  	}
-
-    else if ($ra == "admin" and $senha == "admin"){
-          header('refresh:1;menuPrincipal.php');
-    }
-
-    else {
-  			
-  		echo "<script type='text/javascript'>";
-
-        echo "alert('Dados Incorretos');";
-
-        echo "</script>";
+		echo "</script>";
 
 
-        header('refresh:1;ini.php');
-  	}  
+		header('refresh:1;ini.php');
+	}
+} else if ($ra == "admin" and $senha == "admin") {
+	header('refresh:1;menuPrincipal.php');
+} else {
+
+	echo "<script type='text/javascript'>";
+
+	echo "alert('Dados Incorretos');";
+
+	echo "</script>";
+
+
+	header('refresh:1;ini.php');
+}
 
 ?>
 
 <html>
-	<head>
-  <link href="front/style.css" rel="stylesheet">
-  </head>
-  <body>
-  	
-  </body>
+
+<head>
+	<link href="front/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+</body>
+
 </html>

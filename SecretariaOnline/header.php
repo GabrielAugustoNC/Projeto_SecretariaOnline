@@ -1,55 +1,51 @@
-          <?php 
-                include "classeConexao.php";
+          <?php
+          include "classeConexao.php";
 
-                $nome = $_POST['nome'];
-                $ra = $_POST['ra'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-               // $senha = md5($_POST['senha']);
-                $contato = $_POST['contato'];
+          $nome = $_POST['nome'];
+          $ra = $_POST['ra'];
+          $email = $_POST['email'];
+          $senha = $_POST['senha'];
+          // $senha = md5($_POST['senha']);
+          $contato = $_POST['contato'];
 
-                if ($ra != "" and $nome != "" and $senha != ""){
+          if ($ra != "" and $nome != "" and $senha != "") {
 
-                $sql = mysql_query("INSERT INTO aluno(RA,nome,email,senha,contato) values ('$ra', '$nome', '$email','$senha','$contato') ");
-                mysql_error();
+            $sql = mysql_query("INSERT INTO aluno(RA,nome,email,senha,contato) values ('$ra', '$nome', '$email','$senha','$contato') ");
+            mysql_error();
+
+            if (mysql_error() == null or mysql_error() == "") {
+
+              header('Location: confirmaCadastro.php');
+            } else {
 
 
+              echo "<script type='text/javascript'>";
 
-                      if (mysql_error() == null or mysql_error() == "" ){
-                         
-                          header( 'Location: confirmaCadastro.php');
+              echo "alert('RA já Cadastrado!');";
 
-                       } else{
+              echo "</script>";
+            }
+          } else {
 
-                    
-                          echo"<script type='text/javascript'>";
+            echo "<script type='text/javascript'>";
 
-                          echo "alert('RA já Cadastrado!');";
+            echo "alert('Preencha o Formulário de Cadastro!');";
 
-                          echo "</script>";
-                  
-                }
+            echo "</script>";
+          }
 
-                }else{
-                    
-                    echo"<script type='text/javascript'>";
+          header('refresh:1;cadastro.php');
 
-                    echo "alert('Preencha o Formulário de Cadastro!');";
+          ?>
 
-                    echo "</script>";
+          <html>
 
-                  
-                }
+          <head>
+            <link href="front/style.css" rel="stylesheet">
+          </head>
 
-                 header('refresh:1;cadastro.php');
+          <body>
 
-?>
+          </body>
 
-<html>
-  <head>
-  <link href="front/style.css" rel="stylesheet">
-  </head>
-  <body>
-    
-  </body>
-</html>
+          </html>
